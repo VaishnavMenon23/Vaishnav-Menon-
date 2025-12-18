@@ -1,0 +1,40 @@
+{
+  "name": "vaishnav-portfolio-server",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "ts-node-dev --respawn --transpile-only src/index.ts",
+    "start": "node dist/index.js",
+    "build": "tsc -p .",
+    "typecheck": "tsc -p . --noEmit",
+    "test": "echo 'AI Solutions test suite - run from workspace root' && exit 0",
+    "ml:train": "python ../AI-Solutions/ML/training/scripts/train.py --out=../AI-Solutions/ML/models",
+    "ml:export:onnx": "python ../AI-Solutions/ML/training/scripts/export_onnx.py --model-dir=../AI-Solutions/ML/models --out=../AI-Solutions/ML/models/onnx",
+    "ml:export:tfjs": "python ../AI-Solutions/ML/training/scripts/convert_tfjs.py --onnx-path=../AI-Solutions/ML/models/onnx/classifier.onnx --out=../AI-Solutions/ML/models/tfjs",
+    "ml:test": "jest --testPathPattern=AI-Solutions/ML/tests",
+    "ml:typecheck": "tsc -p . --noEmit",
+    "format": "prettier --write \"src/**/*.{ts,tsx,js,json}\""
+  },
+  "dependencies": {
+    "@azure/cosmos": "^4.9.0",
+    "@azure/storage-blob": "^12.12.0",
+    "@types/jest": "^30.0.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
+    "jest": "^30.2.0",
+    "jsonwebtoken": "^9.0.2",
+    "jwks-rsa": "^3.2.0",
+    "morgan": "^1.10.0",
+    "node-fetch": "^2.6.12",
+    "zod": "^4.2.1"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.21",
+    "@types/node": "^20.5.1",
+    "@types/node-fetch": "^2.6.0",
+    "ts-node-dev": "^2.0.0",
+    "typescript": "^5.4.2"
+  }
+}

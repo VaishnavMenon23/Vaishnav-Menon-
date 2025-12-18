@@ -1,0 +1,22 @@
+{
+  "compilerOptions": {
+    "target": "ES2022",
+    "module": "ES2022",
+    "moduleResolution": "node",
+    "baseUrl": ".",
+    "paths": {
+      "@ai/*": ["../AI-Solutions/*"],
+      "@ml/*": ["../AI-Solutions/ML/*"],
+      "@services/*": ["./src/services/*"]
+    },
+    "outDir": "dist",
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "strict": false,
+    "skipLibCheck": true,
+    "resolveJsonModule": true,
+    "isolatedModules": true
+  },
+  "include": ["src/**/*", "../AI-Solutions/**/*"],
+  "types": ["node", "jest"]
+}
